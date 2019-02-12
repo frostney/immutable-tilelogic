@@ -14,7 +14,7 @@ class ImmutableTileLogic {
     }
   }
 
-  static fromArray(arr: TileMap) {
+  static fromArray(arr: TileMap): ImmutableTileLogic {
 
   }
 
@@ -27,7 +27,7 @@ class ImmutableTileLogic {
   }
 
   get(x: number, y: number): any {
-
+    return this._tile[x][y];
   }
 
   swap(source, target): ImmutableTileLogic {
