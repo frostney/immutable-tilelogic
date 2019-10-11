@@ -14,29 +14,35 @@ class ImmutableTileLogic {
     }
   }
 
-  static fromArray(arr: TileMap): ImmutableTileLogic {
+  // static fromArray(arr: TileMap): ImmutableTileLogic {
 
-  }
+  // }
 
   toJS(): TileMap {
     return this._tile;
   }
 
   set(x: number, y: number, data: any): ImmutableTileLogic {
-
+    return new ImmutableTileLogic(this.width, this.height, (x_, y_) => {
+      if (x === x_ && y === y_) {
+        return data;
+      } else {
+        return this.get(x_, y_);
+      }
+    })
   }
 
   get(x: number, y: number): any {
     return this._tile[x][y];
   }
 
-  swap(source, target): ImmutableTileLogic {
+  // swap(source, target): ImmutableTileLogic {
 
-  }
+  // }
 
-  clone(): ImmutableTileLogic {
-    return ImmutableTileLogic.fromArray(this._tile);
-  }
+  // clone(): ImmutableTileLogic {
+  //   return ImmutableTileLogic.fromArray(this._tile);
+  // }
 
   map(mapper: TileLogicIterator) {
 
